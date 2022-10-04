@@ -19,6 +19,10 @@ function Home() {
     navigate(`/gifs/${searchGifInput.current.value}`)
   }
 
+  const handleClick = e => {
+    navigate('/', {replace: true})
+  }
+
   return (
     <div className='contenedor'>
         <div className='contenedor-input'>
@@ -28,7 +32,9 @@ function Home() {
                 </form>
         </div>
 
+
         <div className='contenedor-seccion-gif'>
+            <div onClick={handleClick} className='back-button' >Volver </div>
             {
                 gifs.map(({title, id, url}) =>{
                    return <Gif 

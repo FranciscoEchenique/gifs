@@ -1,6 +1,6 @@
-import { Link, Navigate } from 'react-router-dom'; 
+import { Link,  useNavigate } from 'react-router-dom'; 
 import { useRef } from 'react'
-import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 export default function Home () {
 
@@ -15,7 +15,7 @@ export default function Home () {
   }
 
     return (
-        <div>
+        <div className='main-container'>
             <img src={'#'}  alt='Logo'/>
 
             <div className='contenedor-input'>
