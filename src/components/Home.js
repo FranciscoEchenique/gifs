@@ -1,11 +1,15 @@
 import { Link,  useNavigate } from 'react-router-dom'; 
 import { useRef } from 'react'
 import './Home.css';
+import { useGifs } from '../hooks/useGifs';
+import Gif from './Gif';
 
 export default function Home () {
 
     const keyword = localStorage.getItem('lastWord');
     const navigate = useNavigate();
+
+    const gifs = useGifs({word: 'trending'});
 
     const searchGifInput = useRef();
 
@@ -16,9 +20,11 @@ export default function Home () {
 
     return (
         <div className='main-container'>
-            <img src={'#'}  alt='Logo'/>
+            <div className='logo-container'>
+                <h1>SearchYourGif</h1>
+            </div>
 
-            <div className='contenedor-input'>
+            <div className='input-container'>
                 <form onSubmit={handleSubmit}>
                     <input ref={searchGifInput} type='text' className='input-gif' placeholder='Search gifs'/>
                     <button>Buscar</button>
@@ -27,7 +33,7 @@ export default function Home () {
 
             <ul>
                 <li>
-                    <Link to='gifs/football' >Football gifs</Link>
+                    <Link to='gifs/soccer' >Football gifs</Link>
                 </li>
 
                 <li>
@@ -44,6 +50,22 @@ export default function Home () {
                     </li>
                 }
             </ul>
+
+            <div className='galery-container'>
+                {
+                    gifs.map(({title, id, url}) => {
+                      return <div className='gif-container'>
+                            <Gif 
+                                key={id}
+                                title={title}
+                                id={id}
+                                url={url}
+                            />
+                        </div>
+                    })
+                }
+            </div>
+
         </div>
     )
 }
