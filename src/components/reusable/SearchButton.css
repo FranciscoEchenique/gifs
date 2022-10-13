@@ -1,13 +1,3 @@
-.main-container ul li{
-    margin: 5px;
-}
-.main-container ul li a{
-    color: white;
-    text-decoration: underline;
-}
-.main-container ul{
-    margin: 20px 0;
-}
 .input-container{
     text-align: center;
     margin: 10px;
@@ -28,6 +18,10 @@ button {
     background-color: #755e9d;
     color: white;
     transition: all 500ms;
+}
+.error-message{
+    color: red;
+    margin: 5px
 }
 
 /* Pseudoclases */

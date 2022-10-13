@@ -1,0 +1,7 @@
+.galery-container{
+    columns: 5 240px;
+    padding: 10px;
+}
+.main-container .galery-container .gif-container{
+    width: 100%;
+}

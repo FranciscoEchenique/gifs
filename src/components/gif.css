@@ -3,18 +3,20 @@ h1.titulo{
     margin: 10px;
 }
 .gif {
-    border-radius: 6px;
-    border: 1px solid #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    color: white;
+    position: relative;
 }
 .gif img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.gif h4{
+    position: absolute;
+    color: white;
+    bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    font-size: 12px;
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px){

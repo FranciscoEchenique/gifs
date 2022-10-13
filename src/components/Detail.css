@@ -1,0 +1,9 @@
+.detail-container .gif {
+    width: 40%;
+    margin: auto;
+}
+.detail-container .detail-title{
+    text-align: center;
+    color: white;
+    margin: 10px;
+}

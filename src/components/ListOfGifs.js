@@ -1,53 +1,26 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useGifs } from '../hooks/useGifs';
-import { useParams, useNavigate } from "react-router-dom";
-import Gif from "./Gif";
+import { useParams } from "react-router-dom";
 import './ListOfGifs.css'
+import BackButton from "./reusable/BackButton";
+import GifGallery from "./reusable/GifGallery";
+import SearchButton from "./reusable/SearchButton";
+import Title from "./reusable/Title";
 
-function Home() {
-    
-    const navigate = useNavigate();
+function ListOfGifs() {
 
     const { topic } = useParams();
 
     const gifs = useGifs({word: topic});
 
-    const searchGifInput = useRef();
-
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate(`/gifs/${searchGifInput.current.value}`)
-  }
-
-  const handleClick = e => {
-    navigate('/', {replace: true})
-  }
-
   return (
     <div className='contenedor'>
-        <div className='contenedor-input'>
-                <form onSubmit={handleSubmit}>
-                    <input ref={searchGifInput} type='text' className='input-gif' placeholder='Search gifs'/>
-                    <button>Buscar</button>
-                </form>
-        </div>
-
-
-        <div className='contenedor-seccion-gif'>
-            <div onClick={handleClick} className='back-button' >Volver </div>
-            {
-                gifs.map(({title, id, url}) =>{
-                   return <Gif 
-                        key={id} 
-                        title={title}
-                        id={id}
-                        url={url}
-                    />
-                })
-            }
-        </div>
+        <BackButton />
+        <Title title={`${topic} gifs`} />
+        <SearchButton />
+        <GifGallery gifs={gifs}/>
     </div>
   );
 }
 
-export default Home;
+export default ListOfGifs;
